@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDL Teresina - Câmara de Dirigentes Lojistas</title>
+    <!-- Google Fonts para tipografia moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para ícones modernos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variáveis de Cores e Estilo */
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d80;
+            --secondary: #20c997;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --border: #e2e8f0;
+            --font: 'Inter', sans-serif;
+        }
+
+        /* Reset Geral */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Navegação */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--gray);
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--dark);
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .btn-contact {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+            transition: background-color 0.3s ease !important;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: var(--light);
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Principais Serviços */
+        .services-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .service-icon {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        /* Informações Institucionais (CNPJ) */
+        .info-section {
+            background-color: #ffffff;
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .info-text h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .info-text p {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .badge {
+            background-color: var(--light);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--light);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .info-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            font-size: 15px;
+        }
+
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--dark);
+            width: 40%;
+        }
+
+        .info-value {
+            color: var(--gray);
+        }
+
+        /* Contato & Localização */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .contact-box h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            font-size: 20px;
+            color: var(--primary);
+            background: rgba(0, 86, 179, 0.08);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-details p, .contact-details a {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            padding: 40px 0;
+            border-top: 1px solid #334155;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .info-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Menu sanduíche simplificado para landing page */
+            }
+            .hero h2 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>C D L</h1>
+                <span>Câmara de Dirigentes Lojistas de Teresina</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Institucional</a></li>
+                <li><a href="#contato" class="btn-contact">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h2>Fortalecendo o Comércio de Teresina</h2>
+            <p>Apoiamos o lojista e impulsionamos o desenvolvimento econômico do nosso município com soluções inteligentes de crédito, gestão e capacitação.</p>
+        </div>
+    </section>
+
+    <!-- Principais Serviços -->
+    <section id="servicos" class="services-section">
+        <div class="container">
+            <div class="section-title">
+                <h3>Principais Serviços</h3>
+            </div>
+            <div class="services-grid">
+                <!-- Serviço 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4>Consulta de Crédito (SPC)</h4>
+                    <p>Segurança para suas vendas com acesso ao maior banco de dados de proteção ao crédito do país.</p>
+                </div>
+                <!-- Serviço 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h4>Certificado Digital</h4>
+                    <p>Agilidade e validade jurídica para assinar documentos digitais de onde quer que você esteja.</p>
+                </div>
+                <!-- Serviço 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h4>Cursos & Capacitação</h4>
+                    <p>Treinamentos especializados para gestores e colaboradores que visam a alta performance em vendas.</p>
+                </div>
+                <!-- Serviço 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h4>Convênios & Parcerias</h4>
+                    <p>Condições exclusivas em serviços de saúde, educação e assessoria para empresas associadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre / Dados de Registro -->
+    <section id="sobre" class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-text">
+                    <div class="section-title" style="text-align: left;">
+                        <h3 style="padding-bottom: 15px; margin-bottom: 20px;">Quem Somos</h3>
+                    </div>
+                    <p>Fundada em 1995, a <strong>Câmara de Dirigentes Lojistas de Teresina (CDL)</strong> é uma associação privada que atua há mais de três décadas defendendo o livre comércio e fornecendo as melhores ferramentas de inteligência de mercado para os empresários da capital piauiense.</p>
+                    
+                    <div class="badge-list">
+                        <span class="badge">Associação Privada</span>
+                        <span class="badge">Matriz Ativa</span>
+                        <span class="badge">Fundada em 1995</span>
+                    </div>
+                </div>
+                
+                <!-- Informações do CNPJ -->
+                <div>
+                    <table class="info-table">
+                        <tr>
+                            <td class="info-label">Razão Social</td>
+                            <td class="info-value">Camara de Dirigentes Lojistas de Teresina</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">CNPJ</td>
+                            <td class="info-value">06.510.499/0001-63</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Nome Fantasia</td>
+                            <td class="info-value">C D L</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Data de Abertura</td>
+                            <td class="info-value">12/04/1995 (Ativa desde 24/09/2005)</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Porte / Enquadramento</td>
+                            <td class="info-value">Sem Enquadramento</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato e Localização -->
+    <section id="contato" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Caixa de Telefones -->
+                <div class="contact-box">
+                    <h3>Canais de Atendimento</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telefone Principal</h4>
+                            <p><a href="tel:8632216969">(86) 3221-6969</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telefone Alternativo</h4>
+                            <p><a href="tel:8632211292">(86) 3221-1292</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caixa de Endereço -->
+                <div class="contact-box">
+                    <h3>Localização</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Endereço</h4>
+                            <p>Rua Desembargador Freitas, 977</p>
+                            <p>Bairro Centro - CEP 64000-240</p>
+                            <p>Teresina - PI</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Correspondência</h4>
+                            <p>C D L Camara de Dirigentes Lojistas de Teresina</p>
+                            <p>Rua Desembargador Freitas 977, Centro</p>
+                            <p>Teresina PI, CEP 64000-240</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Camara de Dirigentes Lojistas de Teresina - CNPJ: 06.510.499/0001-63. Todos os direitos reservados.</p>
+            <p style="font-size: 12px; color: #64748b;">Feito com foco no fortalecimento do comércio local.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
